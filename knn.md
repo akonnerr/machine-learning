@@ -1,3 +1,4 @@
+```python
 from numpy import *
 import operator
 
@@ -26,3 +27,4 @@ def classify0(inX,dataSet,labels,k):
                               key = operator.itemgetter(1),reverse=True)
     return sortedClassCount[0][0]
     #sorted()函数sorted(iterable, cmp=None, key=None, reverse=False)，iteritems()将dict分解为元组列表，operator.itemgetter(1)表示按照第二个元素的次序对元组进行排序，注意sort()的区别，可参考numpy.sort；
+```
