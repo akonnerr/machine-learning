@@ -52,6 +52,7 @@ def file2matrix(filename):
 
 def autonorm(dataSet):
     minvals = dataSet.min(0)
+    #列中取出最小值
     maxvals = dataSet.max(0)
     ranges = maxvals - minvals
     normdataset = zeros(shape(dataSet))
