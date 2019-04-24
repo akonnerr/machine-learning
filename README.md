@@ -3,6 +3,7 @@
 ### Classifier
 ```python3
 from numpy import *
+import os
 import operator
 
 def creatDataSet():
@@ -92,6 +93,33 @@ def classifperson():
     classifierresult = classify0((inarr-minvals)/ranges,normmat,datinglabels,3)
     print ("You will probably like this person:",resultlist[classifierresult-1])
 
+```
+### handwritingClassTest
+``` python
+def handwritingClassTest():
+    hwlabels = []
+    trainingfilelist = os.listdir('/Users/zhangshize/Github/machinelearninginaction/Ch02/digits/trainingDigits')
+    m = len(trainingfilelist)
+    trainingmat = zeros((m,1024))
+    for i in range (m):
+        filenamestr = trainingfilelist[i]
+        filestr = filenamestr.split('.')[0]
+        classnumstr = int(filestr.split('_')[0])
+        hwlabels.append(classnumstr)
+        trainingmat[i,:] = img2vector('/Users/zhangshize/Github/machinelearninginaction/Ch02/digits/trainingDigits/%s' % filenamestr)
+    testfilelist = os.listdir('/Users/zhangshize/Github/machinelearninginaction/Ch02/digits/testDigits')
+    errorcount = 0.0
+    mtest = len(testfilelist)
+    for i in range(mtest):
+        filenamestr =testfilelist[i]
+        filestr = filenamestr.split('.')[0]
+        classnumstr = int(filestr.split('_')[0])
+        vectorundertest = img2vector('/Users/zhangshize/Github/machinelearninginaction/Ch02/digits/testDigits/%s' % filenamestr)
+        classifierresult = classify0(vectorundertest,trainingmat,hwlabels,3)
+        print("the classifier came back with : %d,the real answer is %d" % (classifierresult,classnumstr))
+        if (classifierresult != classnumstr):errorcount += 1.0
+    print("\nthe total number of error is: %d" % errorcount)
+    print("\nthe total error rate is :%f" % (errorcount/float(mtest)))
 ```
 ## use knn
 ```python3
