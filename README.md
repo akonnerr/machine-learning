@@ -1,6 +1,6 @@
 # machine-learning
 ## kNN algorithm
-### Classifier
+
 ```python3
 from numpy import *
 import os
@@ -31,9 +31,7 @@ def classify0(inX,dataSet,labels,k):
                               key = operator.itemgetter(1),reverse=True)
         # sorted()函数sorted(iterable, cmp=None, key=None, reverse=False)，iteritems()将dict分解为元组列表，operator.itemgetter(1)表示按照第二个元素的次序对元组进行排序，注意sort()的区别，可参考numpy.sort；
     return sortedClassCount[0][0]
-```
-### Read text files and normalize them
-```python3
+
 def file2matrix(filename):
     fr = open(filename)
     arrayoflines = fr.readlines()
@@ -61,9 +59,7 @@ def autonorm(dataSet):
     normdataset = dataSet - tile(minvals,(m,1))
     normdataset = normdataset/tile(ranges,(m,1))
     return normdataset,ranges,minvals
-```
-### Training test set
-```python3
+
 def datingclasstest():
     horatio = 0.10
     datingdatamat ,datinglabels = file2matrix('/Users/zhangshize/Github/machinelearninginaction/Ch02/datingTestSet.txt')
@@ -93,8 +89,7 @@ def classifperson():
     classifierresult = classify0((inarr-minvals)/ranges,normmat,datinglabels,3)
     print ("You will probably like this person:",resultlist[classifierresult-1])
 
-```
-### handwritingClassTest
+
 ``` python
 def handwritingClassTest():
     hwlabels = []
