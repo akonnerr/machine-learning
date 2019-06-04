@@ -122,7 +122,7 @@ def handwritingClassTest():
     print("\nthe total error rate is :%f" % (errorcount/float(mtest)))
 ```
 ## trees algorithm
-```
+```python3
 from math import log
 import operator
 
