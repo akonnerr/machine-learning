@@ -74,9 +74,7 @@ def datingclasstest():
         if (classifierresult != datinglabels[i]): errorcount += 1.0
     print(("the total error rate is :%f") % (errorcount/float(numtestvect)))
     #注意在python3中，print已经是函数需要加上括号
-```
-### Packaging classifier
-```python3
+
 def classifperson():
     resultlist = ['not at all', 'in small doses','in large doses']
     percenttats = float(input("percentage of time spent playing video games?"))
@@ -89,8 +87,6 @@ def classifperson():
     classifierresult = classify0((inarr-minvals)/ranges,normmat,datinglabels,3)
     print ("You will probably like this person:",resultlist[classifierresult-1])
 
-
-``` python
 def handwritingClassTest():
     hwlabels = []
     trainingfilelist = os.listdir('/Users/zhangshize/Github/machinelearninginaction/Ch02/digits/trainingDigits')
@@ -115,6 +111,7 @@ def handwritingClassTest():
         if (classifierresult != classnumstr):errorcount += 1.0
     print("\nthe total number of error is: %d" % errorcount)
     print("\nthe total error rate is :%f" % (errorcount/float(mtest)))
+    
 ```
 ## trees algorithm
 ```python3
